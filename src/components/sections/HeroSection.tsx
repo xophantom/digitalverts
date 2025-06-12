@@ -1,8 +1,22 @@
 'use client';
 
 import React from 'react';
+import { useApi } from '@/context/ApiContext';
 
 export default function HeroSection() {
+  const { registerButtonClick } = useApi();
+
+  const handleButtonClick = async (buttonId: string) => {
+    try {
+      await registerButtonClick(buttonId, 'hero-section', {
+        timestamp: new Date().toISOString(),
+        section: 'hero'
+      });
+    } catch (error) {
+      console.error('Erro ao registrar clique:', error);
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-16">
       <div className="max-w-4xl mx-auto text-center">
@@ -18,10 +32,16 @@ export default function HeroSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-delay-400">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 transform hover:scale-105">
+            <button 
+              onClick={() => handleButtonClick('hero-cta-primary')}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 transform hover:scale-105"
+            >
               Começar Agora
             </button>
-            <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+            <button 
+              onClick={() => handleButtonClick('hero-cta-secondary')}
+              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+            >
               Saiba Mais
             </button>
           </div>

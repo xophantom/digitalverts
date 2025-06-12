@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ButtonClick {
+  id        String   @id @default(cuid())
+  buttonId  String   // Identificador do botão clicado
+  page      String   // Página onde o clique aconteceu
+  timestamp DateTime @default(now())
+  userAgent String?  // User agent do navegador
+  ipAddress String?  // IP do usuário (se disponível)
+  metadata  Json?    // Dados adicionais em formato JSON
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("button_clicks")
+} 

@@ -1,8 +1,27 @@
 'use client';
 
 import React from 'react';
+import { useApi } from '@/context/ApiContext';
 
 export default function ContactSection() {
+  const { registerButtonClick } = useApi();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      await registerButtonClick('contact-form-submit', 'contact-section', {
+        timestamp: new Date().toISOString(),
+        section: 'contact',
+        formType: 'contact'
+      });
+      
+      alert('Formulário enviado! (Clique registrado)');
+    } catch (error) {
+      console.error('Erro ao registrar clique:', error);
+    }
+  };
+
   return (
     <section className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -18,7 +37,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Formulário */}
           <div className="scroll-animate">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -123,16 +142,28 @@ export default function ContactSection() {
               <div className="pt-6">
                 <h4 className="font-semibold text-gray-900 mb-4">Siga-nos</h4>
                 <div className="flex space-x-4">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-300">
+                  <button 
+                    onClick={() => registerButtonClick('social-facebook', 'contact-section', { platform: 'facebook' })}
+                    className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-300"
+                  >
                     📘
                   </button>
-                  <button className="bg-blue-400 hover:bg-blue-500 text-white p-3 rounded-full transition-colors duration-300">
+                  <button 
+                    onClick={() => registerButtonClick('social-twitter', 'contact-section', { platform: 'twitter' })}
+                    className="bg-blue-400 hover:bg-blue-500 text-white p-3 rounded-full transition-colors duration-300"
+                  >
                     🐦
                   </button>
-                  <button className="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full transition-colors duration-300">
+                  <button 
+                    onClick={() => registerButtonClick('social-instagram', 'contact-section', { platform: 'instagram' })}
+                    className="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full transition-colors duration-300"
+                  >
                     📷
                   </button>
-                  <button className="bg-blue-800 hover:bg-blue-900 text-white p-3 rounded-full transition-colors duration-300">
+                  <button 
+                    onClick={() => registerButtonClick('social-linkedin', 'contact-section', { platform: 'linkedin' })}
+                    className="bg-blue-800 hover:bg-blue-900 text-white p-3 rounded-full transition-colors duration-300"
+                  >
                     💼
                   </button>
                 </div>

@@ -13,6 +13,7 @@ interface ApiResponse {
 interface ApiContextType {
   healthCheck: () => Promise<ApiResponse>;
   postData: (data: Record<string, unknown>) => Promise<ApiResponse>;
+  registerButtonClick: (buttonId: string, page: string, metadata?: Record<string, unknown>) => Promise<ApiResponse>;
   loading: boolean;
   error: string | null;
 }
@@ -90,9 +91,41 @@ export const ApiProvider: React.FC<ApiProviderProps> = ({ children }) => {
     }
   };
 
+  const registerButtonClick = async (buttonId: string, page: string, metadata?: Record<string, unknown>): Promise<ApiResponse> => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      console.log('Registrando clique no botão:', buttonId, page, metadata);
+      const response = await fetch('/api/button-click', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ buttonId, page, metadata }),
+      });
+      
+      const responseData = await response.json();
+      console.log('Button click response:', response.status, responseData);
+      
+      if (!response.ok) {
+        throw new Error(responseData.message || 'Erro na requisição');
+      }
+      
+      return responseData;
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Erro desconhecido';
+      setError(errorMessage);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const value: ApiContextType = {
     healthCheck,
     postData,
+    registerButtonClick,
     loading,
     error,
   };
