@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 export default function AboutSection() {
   return (
@@ -10,27 +10,18 @@ export default function AboutSection() {
           {/* Coluna da esquerda */}
           <div className="scroll-animate">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Sobre Nossa Empresa
+              Sobre a Digital Verts
             </h2>
             <p className="text-lg text-gray-300 mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              A Digital Verts nasceu para conectar negócios à tecnologia de
+              forma humanizada e eficiente. Criamos soluções digitais sob medida
+              que automatizam processos, otimizam tempo e impulsionam o sucesso
+              dos nossos clientes. Acreditamos que inovação só faz sentido
+              quando traz resultados reais — e é isso que entregamos todos os
+              dias.
             </p>
-            <p className="text-lg text-gray-300 mb-8">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">500+</div>
-                <div className="text-gray-300">Clientes Satisfeitos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">99%</div>
-                <div className="text-gray-300">Taxa de Sucesso</div>
-              </div>
-            </div>
           </div>
-          
+
           {/* Coluna da direita */}
           <div className="scroll-animate">
             <div className="bg-gray-800 p-8 rounded-2xl shadow-lg">
@@ -40,33 +31,43 @@ export default function AboutSection() {
                     <span className="text-2xl">🎯</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Nossa Missão</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      Nossa Missão
+                    </h3>
                     <p className="text-gray-300">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
+                      Desenvolver soluções digitais personalizadas que resolvem
+                      problemas reais e melhoram o dia a dia dos nossos
+                      clientes.
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="bg-green-900 p-3 rounded-full">
                     <span className="text-2xl">🌟</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Nossa Visão</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      Nossa Visão
+                    </h3>
                     <p className="text-gray-300">
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+                      Ser referência em tecnologia sob demanda, entregando
+                      inovação com simplicidade, impacto e proximidade.
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="bg-purple-900 p-3 rounded-full">
                     <span className="text-2xl">💎</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Nossos Valores</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      Nossos Valores
+                    </h3>
                     <p className="text-gray-300">
-                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.
+                      Humanização, eficiência, transparência, inovação com
+                      propósito e foco total no resultado do cliente.
                     </p>
                   </div>
                 </div>
