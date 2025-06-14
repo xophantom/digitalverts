@@ -47,22 +47,22 @@ export default function ApiTest() {
   };
 
   return (
-    <div className="p-6 max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6">Teste da API Full-Stack</h2>
+    <div className="p-6 max-w-2xl mx-auto bg-gray-800 rounded-lg">
+      <h2 className="text-2xl font-bold mb-6 text-white">Teste da API Full-Stack</h2>
       
       <div className="space-y-4">
         <div>
           <button
             onClick={handleHealthCheck}
             disabled={loading}
-            className="bg-blue-500 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold py-2 px-4 rounded mr-4"
+            className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-4 transition-colors duration-300"
           >
             {loading ? 'Carregando...' : 'Health Check (GET)'}
           </button>
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-sm font-medium mb-2 text-gray-300">
             Dados para POST (JSON):
           </label>
           <textarea
@@ -72,37 +72,37 @@ export default function ApiTest() {
               setJsonError('');
             }}
             placeholder='{"nome": "João", "idade": 30}'
-            className="w-full p-2 border border-gray-300 rounded mb-2 h-20"
+            className="w-full p-2 border border-gray-600 rounded mb-2 h-20 bg-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
           {jsonError && (
-            <div className="text-red-600 text-sm mb-2">{jsonError}</div>
+            <div className="text-red-400 text-sm mb-2">{jsonError}</div>
           )}
           <button
             onClick={handlePostData}
             disabled={loading}
-            className="bg-green-500 hover:bg-green-700 disabled:bg-gray-400 text-white font-bold py-2 px-4 rounded"
+            className="bg-green-600 hover:bg-green-700 disabled:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
           >
             {loading ? 'Enviando...' : 'Enviar POST'}
           </button>
         </div>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+          <div className="bg-red-900 border border-red-700 text-red-200 px-4 py-3 rounded">
             <strong>Erro:</strong> {error}
           </div>
         )}
 
         <div>
-          <h3 className="text-lg font-semibold mb-2">
+          <h3 className="text-lg font-semibold mb-2 text-white">
             {loading ? 'Carregando...' : 'Resposta da API:'}
           </h3>
           {loading && !response && (
-            <div className="bg-gray-100 p-4 rounded text-sm text-gray-800">
+            <div className="bg-gray-700 p-4 rounded text-sm text-gray-300">
               Aguardando resposta...
             </div>
           )}
           {response && (
-            <pre className="bg-gray-100 p-4 rounded overflow-auto text-sm text-gray-800">
+            <pre className="bg-gray-700 p-4 rounded overflow-auto text-sm text-gray-300">
               {response}
             </pre>
           )}

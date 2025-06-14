@@ -7,10 +7,13 @@ interface BackgroundProps {
 const Background: React.FC<BackgroundProps> = ({ children }) => {
   return (
     <div
-      className="min-h-screen w-full bg-cover bg-center flex items-center justify-center"
+      className="min-h-screen w-full bg-cover bg-center flex items-center justify-center relative"
       style={{ backgroundImage: 'url(/bg-placeholder.png)' }}
     >
-      {children}
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="relative z-10">
+        {children}
+      </div>
     </div>
   );
 };
