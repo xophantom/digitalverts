@@ -1,10 +1,33 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useApi } from '@/context/ApiContext';
 
 export default function HeroSection() {
   const { registerButtonClick } = useApi();
+  const [logoOpacity, setLogoOpacity] = useState(0.001);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+
+      const maxOpacity = 0.6;
+      const minOpacity = 0.001;
+      const scrollThreshold = windowHeight * 0.5; 
+      
+      const opacity = Math.min(
+        maxOpacity,
+        minOpacity + (scrollPosition / scrollThreshold) * (maxOpacity - minOpacity)
+      );
+      
+      setLogoOpacity(opacity);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleButtonClick = async (buttonId: string) => {
     try {
@@ -22,13 +45,15 @@ export default function HeroSection() {
       {/* Logo animado no background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div 
-          className="w-128 h-128 opacity-10 animate-spin-slow"
+          className="w-64 h-64 animate-spin-slow"
           style={{
             backgroundImage: 'url(/verts-logo-white.png)',
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            animationDirection: 'reverse'
+            animationDirection: 'reverse',
+            opacity: logoOpacity,
+            transition: 'opacity 0.1s ease-out'
           }}
         />
       </div>
