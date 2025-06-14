@@ -18,8 +18,22 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-16">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="min-h-screen flex items-center justify-center px-4 py-16 relative overflow-hidden">
+      {/* Logo animado no background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div 
+          className="w-128 h-128 opacity-10 animate-spin-slow"
+          style={{
+            backgroundImage: 'url(/verts-logo-white.png)',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            animationDirection: 'reverse'
+          }}
+        />
+      </div>
+      
+      <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="scroll-animate">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             <span className="block animate-delay-100">Transforme</span>

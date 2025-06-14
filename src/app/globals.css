@@ -77,6 +77,20 @@ body {
   transition-delay: 0.4s;
 }
 
+/* Animação de rotação lenta para o logo */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
 /* Smooth scroll para toda a página */
 html {
   scroll-behavior: smooth;
