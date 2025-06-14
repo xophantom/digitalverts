@@ -39,7 +39,7 @@ export default function ContactSection() {
 
               <div className="space-y-6">
                 <div className="flex items-center space-x-7">
-                  <div className="bg-blue-900 p-3 rounded-full">
+                  <div className="bg-blue-900 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-xl">📍</span>
                   </div>
                   <div>
@@ -48,8 +48,8 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="bg-green-900 p-3 rounded-full">
+                <div className="flex items-center space-x-7">
+                  <div className="bg-green-900 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-xl">📧</span>
                   </div>
                   <div>

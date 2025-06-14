@@ -27,8 +27,8 @@ export default function AboutSection() {
             <div className="bg-gray-800 p-8 rounded-2xl shadow-lg">
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-blue-900 p-3 rounded-full">
-                    <span className="text-2xl">🎯</span>
+                  <div className="bg-blue-900 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-xl">🎯</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
@@ -43,8 +43,8 @@ export default function AboutSection() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-green-900 p-3 rounded-full">
-                    <span className="text-2xl">🌟</span>
+                  <div className="bg-green-900 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-xl">🌟</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
@@ -58,8 +58,8 @@ export default function AboutSection() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-purple-900 p-3 rounded-full">
-                    <span className="text-2xl">💎</span>
+                  <div className="bg-purple-900 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-xl">💎</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
