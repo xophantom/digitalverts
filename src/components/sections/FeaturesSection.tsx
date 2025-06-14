@@ -21,17 +21,17 @@ const features = [
   {
     icon: '🎯',
     title: 'Precisão Total',
-    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    description: 'Sistemas inteligentes que controlam estoque, vendas, agendamentos, fluxo financeiro e muito mais.'
   },
   {
     icon: '🔧',
     title: 'Fácil Integração',
-    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+    description: 'Integramos ERPs, CRMs, WhatsApp e APIs diversas para unificar e otimizar processos internos.'
   },
   {
     icon: '📱',
     title: 'Mobile First',
-    description: 'Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.'
+    description: 'Soluções responsivas e modernas, pensadas para funcionar com excelência em todos os dispositivos.'
   }
 ];
 
