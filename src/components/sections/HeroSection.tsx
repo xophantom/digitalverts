@@ -8,13 +8,14 @@ export default function HeroSection() {
   const [logoOpacity, setLogoOpacity] = useState(0.001);
   const [logoSize, setLogoSize] = useState(256); // 256px = w-64 h-64
   const [textOpacity, setTextOpacity] = useState(1);
+  const [logoPosition, setLogoPosition] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
 
-      const maxOpacity = 0.6;
+      const maxOpacity = 0.2;
       const minOpacity = 0.001;
       const scrollThreshold = windowHeight * 0.5; 
       
@@ -32,6 +33,13 @@ export default function HeroSection() {
         minSize + (scrollPosition / scrollThreshold) * (maxSize - minSize)
       );
       
+      // Calcula posição do logo (move para baixo com scroll)
+      const maxPosition = 300; // Move 300px para baixo
+      const logoPositionValue = Math.min(
+        maxPosition,
+        (scrollPosition / scrollThreshold) * maxPosition
+      );
+      
       // Calcula opacidade do texto (diminui com scroll)
       const textOpacityValue = Math.max(
         0,
@@ -40,6 +48,7 @@ export default function HeroSection() {
       
       setLogoOpacity(logoOpacityValue);
       setLogoSize(logoSizeValue);
+      setLogoPosition(logoPositionValue);
       setTextOpacity(textOpacityValue);
     };
 
@@ -61,7 +70,7 @@ export default function HeroSection() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-16 relative overflow-hidden">
       {/* Logo animado no background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div 
           className="animate-spin-slow"
           style={{
@@ -73,7 +82,10 @@ export default function HeroSection() {
             opacity: logoOpacity,
             width: `${logoSize}px`,
             height: `${logoSize}px`,
-            transition: 'opacity 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out'
+            transform: `translateY(${logoPosition}px)`,
+            transition: 'opacity 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out, transform 0.1s ease-out',
+            marginTop: '50vh', // Começa centralizado verticalmente
+            marginBottom: 'auto' // Permite movimento livre para baixo
           }}
         />
       </div>
